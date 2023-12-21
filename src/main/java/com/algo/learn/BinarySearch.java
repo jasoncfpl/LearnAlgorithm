@@ -10,9 +10,11 @@ public class BinarySearch {
         int[] arrays = new int[]{1,1,1,2,4,5,6,7,8,9};
 //        int[] arrays = new int[]{1,2,3};
         //循环二分查找
-        int index = binarySearchLoop(arrays,1);
-        int index1 =  binarySearchRecursion(arrays,0,arrays.length - 1,3);
-        int index2 =  binarySearchLeftBoundary(arrays,1);
+        int index = binarySearchLoop(arrays,2);
+        //递归二分查找
+        int index1 =  binarySearchRecursion(arrays,0,arrays.length - 1,2);
+        //寻找左边界的二分查找
+        int index2 =  binarySearchLeftBoundary(arrays,2);
         System.out.println("循环index:" + index);
         System.out.println("递归index:" + index1);
         System.out.println("左侧边界二分查找index:" + index2);
