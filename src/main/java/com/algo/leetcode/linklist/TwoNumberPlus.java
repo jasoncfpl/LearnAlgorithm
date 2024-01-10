@@ -41,16 +41,16 @@ public class TwoNumberPlus {
     public static void main(String[] args) {
 
 //        //demo1
-        ListNode node1 = Test.createLinkNode1();
-        ListNode node2 = Test.createLinkNode2();
+//        ListNode node1 = Test.createLinkNode1();
+//        ListNode node2 = Test.createLinkNode2();
 
 //        //demo2
 //        ListNode node1 = new ListNode(0);
 //        ListNode node2 = new ListNode(0);
 
           //demo3
-//        ListNode node1 = Test.createLinkNode3();
-//        ListNode node2 = Test.createLinkNode4();
+        ListNode node1 = Test.createLinkNode3();
+        ListNode node2 = Test.createLinkNode4();
 
         printNode(node1);
         printNode(node2);
@@ -65,6 +65,7 @@ public class TwoNumberPlus {
         ListNode node = null;
         ListNode rootNode = null;
         while (node1 != null || node2 != null) {
+
             int value1 = node1 != null ? node1.val : 0;
             int value2 = node2 != null ? node2.val : 0;
 
@@ -73,8 +74,7 @@ public class TwoNumberPlus {
             carry = sum / 10;
             //余数
             int remainder = sum % 10;
-            System.out.println("remainder:" + remainder);
-            System.out.println("carry:" + carry);
+            System.out.println("remainder:" + remainder + ",carry:" + carry);
             if (node == null) {
                 node = new ListNode(remainder);
                 rootNode = node;
