@@ -67,9 +67,11 @@ public class LengthOfLongestSubstring {
 
 
         char[] ss = s.toCharArray();
+        //空字符串情况处理
         if (ss.length == 0) {
             return 0;
         }
+        //单个字符串处理
         if (ss.length == 1) {
             return 1;
         }
@@ -80,7 +82,7 @@ public class LengthOfLongestSubstring {
 
                 System.out.println("containsKey " + ss[i] + ",maxLength:" + maxLength + ",map:" + linkedList.toString());
 
-
+                //记录最大长度
                 if (maxLength < linkedList.size()) {
                     maxLength = linkedList.size();
                 }
@@ -88,18 +90,20 @@ public class LengthOfLongestSubstring {
                 Iterator iterator = linkedList.iterator();
 
                 boolean hasFind = false;
+                //出现重复的字符串，删除 第1个字符串到重复的字符串。
                 while (iterator.hasNext() && hasFind == false) {
                     if (iterator.next().equals(String.valueOf(ss[i]))) {
                         hasFind = true;
                     }
                     iterator.remove();
                 }
-
+                //重新添加
                 linkedList.add(String.valueOf(ss[i]));
 
                 System.out.println("containsKey maxLength：" + maxLength + ",map:" + linkedList.toString());
 
             } else {
+                //添加到链表中
                 linkedList.add(String.valueOf(ss[i]));
                 System.out.println("NotcontainsKey map.size():" + linkedList.size() + ",maxLength:" + maxLength);
             }
