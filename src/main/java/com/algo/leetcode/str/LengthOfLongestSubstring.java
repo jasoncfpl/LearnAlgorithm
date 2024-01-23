@@ -34,7 +34,7 @@ import java.util.*;
 public class LengthOfLongestSubstring {
 
     public static void main(String[] args) {
-
+        long start = System.currentTimeMillis();
         test("abcabcbb", 3);
         test("bbbbb", 1);
         test("pwwkew", 3);
@@ -46,12 +46,15 @@ public class LengthOfLongestSubstring {
         test("ohvhjdml", 6);
         test("jbpnbwwd", 4);
         test("wobgrovw", 6);
+        test("bbtablud", 6);
+        long end = System.currentTimeMillis();
 
-
+        System.out.println("time:" + (end - start));
     }
 
     public static void test(String s,int rightResult) {
-        int result = lengthOfLongestSubstring1(s);
+//        int result = lengthOfLongestSubstring1(s);
+        int result = lengthOfLongestSubstring2(s);
         if (result != rightResult) {
             System.out.println("---出现错误---:" + s + " 正确结果为:" + rightResult + ",实际结果为:" + result);
         } else {
@@ -59,6 +62,11 @@ public class LengthOfLongestSubstring {
         }
     }
 
+    /**
+     * 暴力计算
+     * @param s
+     * @return
+     */
     public static int lengthOfLongestSubstring1(String s) {
 
         int maxLength = 0;
@@ -97,6 +105,65 @@ public class LengthOfLongestSubstring {
                     }
                     iterator.remove();
                 }
+                //重新添加
+                linkedList.add(String.valueOf(ss[i]));
+
+                System.out.println("containsKey maxLength：" + maxLength + ",map:" + linkedList.toString());
+
+            } else {
+                //添加到链表中
+                linkedList.add(String.valueOf(ss[i]));
+                System.out.println("NotcontainsKey map.size():" + linkedList.size() + ",maxLength:" + maxLength);
+            }
+
+        }
+        System.out.println("result map.size():" + linkedList.size() + ",maxLength:" + maxLength);
+        if (linkedList.size() == ss.length) {
+            maxLength = ss.length;
+        }
+        if (maxLength < linkedList.size()) {
+            maxLength = linkedList.size();
+        }
+
+        return maxLength;
+    }
+
+    /** 优化-性能提升1/4   修改了list 删除和重建方式
+     * map
+     * @param s
+     * @return
+     */
+    public static int lengthOfLongestSubstring2(String s) {
+
+        int maxLength = 0;
+
+        List<String> linkedList = new ArrayList<>();
+
+
+        char[] ss = s.toCharArray();
+        //空字符串情况处理
+        if (ss.length == 0) {
+            return 0;
+        }
+        //单个字符串处理
+        if (ss.length == 1) {
+            return 1;
+        }
+
+
+        for (int i = 0; i < ss.length; i++) {
+            if (linkedList.contains(String.valueOf(ss[i]))) {
+
+                System.out.println("containsKey " + ss[i] + ",maxLength:" + maxLength + ",map:" + linkedList.toString());
+
+                //记录最大长度
+                if (maxLength < linkedList.size()) {
+                    maxLength = linkedList.size();
+                }
+                //获取前一次出现的同一元素的index
+                int index = linkedList.indexOf(String.valueOf(ss[i]));
+                //根据index 截取list
+                linkedList = linkedList.subList(index, linkedList.size() - 1);
                 //重新添加
                 linkedList.add(String.valueOf(ss[i]));
 
