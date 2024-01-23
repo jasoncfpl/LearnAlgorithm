@@ -53,7 +53,9 @@ public class LengthOfLongestSubstring {
     }
 
     public static void test(String s,int rightResult) {
+        //初始版本
 //        int result = lengthOfLongestSubstring1(s);
+        //性能优化版本
         int result = lengthOfLongestSubstring2(s);
         if (result != rightResult) {
             System.out.println("---出现错误---:" + s + " 正确结果为:" + rightResult + ",实际结果为:" + result);
