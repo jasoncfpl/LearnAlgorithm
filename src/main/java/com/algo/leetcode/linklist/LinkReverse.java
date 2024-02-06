@@ -25,6 +25,7 @@ public class LinkReverse {
     public static void main(String[] args) {
         ListNode rootNode1 = createLinkNode1();
         ListNode rootNode2 = createLinkNode2();
+        ListNode rootNode3 = null;
         System.out.println("---rootNode1---");
         printNode(rootNode1);
         rootNode1 = reverseList(rootNode1);
@@ -32,6 +33,14 @@ public class LinkReverse {
         printNode(rootNode1);
         System.out.println("---rootNode2---");
         printNode(rootNode2);
+        rootNode2 = reverseList(rootNode2);
+        System.out.println("---rootNode2 after---");
+        printNode(rootNode2);
+        System.out.println("---rootNode3---");
+        printNode(rootNode3);
+        rootNode3 = reverseList(rootNode3);
+        System.out.println("---rootNode3 after---");
+        printNode(rootNode3);
     }
 
 
