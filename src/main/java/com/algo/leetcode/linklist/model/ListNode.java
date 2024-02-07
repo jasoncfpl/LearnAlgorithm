@@ -17,6 +17,25 @@ public class ListNode {
         }
     }
 
-    public int val;
+    public int val = -1;
     public ListNode next;
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                ", next=" + next +
+                '}';
+    }
+
+    public void print() {
+        StringBuffer sb = new StringBuffer();
+        ListNode node = this;
+        while (node != null) {
+            sb.append(node.val);
+            sb.append(",");
+            node = node.next;
+        }
+        System.out.println("printNode Node:" + sb.toString());
+    }
 }
