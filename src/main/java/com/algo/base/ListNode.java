@@ -1,4 +1,4 @@
-package com.algo.leetcode.linklist.model;
+package com.algo.base;
 
 /**
  * 链表节点
