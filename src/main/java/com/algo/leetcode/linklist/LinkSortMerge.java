@@ -1,6 +1,7 @@
 package com.algo.leetcode.linklist;
 
-import com.algo.leetcode.linklist.model.ListNode;
+
+import com.algo.base.ListNode;
 
 /**
  * 21. 合并两个有序链表
