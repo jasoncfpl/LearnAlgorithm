@@ -29,21 +29,26 @@ public class LinkReverse {
         ListNode rootNode3 = null;
         System.out.println("---rootNode1---");
         printNode(rootNode1);
-        rootNode1 = reverseList(rootNode1);
+        rootNode1 = reverse(rootNode1);
         System.out.println("---rootNode1 after---");
         printNode(rootNode1);
         System.out.println("---rootNode2---");
         printNode(rootNode2);
-        rootNode2 = reverseList(rootNode2);
+        rootNode2 = reverse(rootNode2);
         System.out.println("---rootNode2 after---");
         printNode(rootNode2);
         System.out.println("---rootNode3---");
         printNode(rootNode3);
-        rootNode3 = reverseList(rootNode3);
+        rootNode3 = reverse(rootNode3);
         System.out.println("---rootNode3 after---");
         printNode(rootNode3);
     }
 
+
+    public static ListNode reverse(ListNode head) {
+//        return reverseList(head);
+        return reverseList2(head);
+    }
 
     public static ListNode reverseList(ListNode head) {
 
@@ -61,6 +66,18 @@ public class LinkReverse {
 
         return pre;
 
+    }
+
+    public static ListNode reverseList2(ListNode head) {
+        ListNode pre = null;
+
+        while (head != null) {
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
     }
 
 
