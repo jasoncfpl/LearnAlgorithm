@@ -61,33 +61,6 @@ public class JosephusProblem {
 
     }
 
-    public static ListNode solve2(ListNode node,int m) {
-
-        if (node.val == node.next.val) {
-            return node;
-        }
-        int count = 1;
-        ListNode currentNode = node;
-        while (currentNode != null) {
-            if (count == m) {
-                currentNode = currentNode.next;
-                lastNode.next = currentNode;
-                count = 1;
-            } else {
-                count++;
-                lastNode = currentNode;
-                currentNode = currentNode.next;
-            }
-
-            if (currentNode.val == currentNode.next.val) {
-                break;
-            }
-
-        }
-
-        solve2(,m);
-
-    }
 
 
     /**
