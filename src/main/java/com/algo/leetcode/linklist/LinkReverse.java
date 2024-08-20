@@ -1,6 +1,7 @@
 package com.algo.leetcode.linklist;
 
 
+import com.algo.base.LinkListNodeTools;
 import com.algo.base.ListNode;
 
 /**
@@ -24,24 +25,24 @@ import com.algo.base.ListNode;
 public class LinkReverse {
 
     public static void main(String[] args) {
-        ListNode rootNode1 = createLinkNode1();
-        ListNode rootNode2 = createLinkNode2();
+        ListNode rootNode1 = LinkListNodeTools.createLinkNode5();
+        ListNode rootNode2 = LinkListNodeTools.createLinkNode2();
         ListNode rootNode3 = null;
         System.out.println("---rootNode1---");
-        printNode(rootNode1);
+        LinkListNodeTools.printNode(rootNode1);
         rootNode1 = reverse(rootNode1);
         System.out.println("---rootNode1 after---");
-        printNode(rootNode1);
+        LinkListNodeTools.printNode(rootNode1);
         System.out.println("---rootNode2---");
-        printNode(rootNode2);
+        LinkListNodeTools.printNode(rootNode2);
         rootNode2 = reverse(rootNode2);
         System.out.println("---rootNode2 after---");
-        printNode(rootNode2);
+        LinkListNodeTools.printNode(rootNode2);
         System.out.println("---rootNode3---");
-        printNode(rootNode3);
+        LinkListNodeTools.printNode(rootNode3);
         rootNode3 = reverse(rootNode3);
         System.out.println("---rootNode3 after---");
-        printNode(rootNode3);
+        LinkListNodeTools.printNode(rootNode3);
     }
 
 
@@ -81,33 +82,6 @@ public class LinkReverse {
     }
 
 
-    public static void printNode(ListNode node) {
-        StringBuffer sb = new StringBuffer();
-        while (node != null) {
-            sb.append(node.val);
-            sb.append(",");
-            node = node.next;
-        }
-        System.out.println("printNode Node:" + sb.toString());
-    }
-    public static ListNode createLinkNode1() {
-        ListNode rootNode = new ListNode(1);
-        ListNode node1 = new ListNode(2);
-        ListNode node2 = new ListNode(3);
-        ListNode node3 = new ListNode(4);
-        ListNode node4 = new ListNode(5);
-        rootNode.addNode(node1);
-        rootNode.addNode(node2);
-        rootNode.addNode(node3);
-        rootNode.addNode(node4);
-        return rootNode;
-    }
 
-    public static ListNode createLinkNode2() {
-        ListNode rootNode = new ListNode(1);
-        ListNode node1 = new ListNode(2);
-        rootNode.addNode(node1);
-        return rootNode;
-    }
 
 }
